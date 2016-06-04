@@ -68,7 +68,7 @@ void QCanvasWidget::Draw(TList *m_list)
     TCanvas->getCanvas()->Clear();
     if(strcmp(m_list->GetName(), "T0_Correlation") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH2 *h2D[list_size];
 
@@ -92,7 +92,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "T0_Difference") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH1 *h1D[list_size];
         TIter next(m_list);
@@ -115,7 +115,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "T0_Sum") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH2 *h2D[list_size];
         TIter next(m_list);
@@ -138,7 +138,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "NHits_Profile") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TProfile *Prof025;
         TProfile *Prof050;
@@ -170,7 +170,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "NHits_Layer") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH1 *hNhits[list_size];
         TIter next(m_list);
@@ -194,7 +194,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "Energy_Sum") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH1 *h1D[list_size];
         TIter next(m_list);
@@ -221,7 +221,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "EnergyPerLayer") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH1 *h1D[list_size];
         TIter next(m_list);
@@ -248,7 +248,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "Shower") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH1 *h1D[list_size];
         TH2 *h2D[list_size];
@@ -285,7 +285,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "HitMap") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
         TH2 *h2D[list_size];
         TIter next(m_list);
@@ -312,7 +312,7 @@ void QCanvasWidget::Draw(TList *m_list)
     }
     if(strcmp(m_list->GetName(), "Temperature") == 0)
     {
-        int list_size = m_list->GetSize();
+    	const int list_size = m_list->GetSize();
 
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
 
