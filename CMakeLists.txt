@@ -119,7 +119,7 @@ IF( GIT_FOUND )
 	MESSAGE( STATUS "" )
     MESSAGE( STATUS "---------------------------------------" )
     MESSAGE( STATUS "    Git found: ${GIT_EXECUTABLE}       " )
-    MESSAGE( STATUS "    Pulling last dCache-gui version    " )
+    MESSAGE( STATUS "  Pulling last QtReco-Client version   " )
     MESSAGE( STATUS "---------------------------------------" )
     MESSAGE( STATUS "" )
     
