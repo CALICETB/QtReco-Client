@@ -317,7 +317,7 @@ void QCanvasWidget::Draw(TList *m_list)
 
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
 
-        TGraphErrors *TGraph[list_size];
+        std::vector<TGraphErrors*> TGraph(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
