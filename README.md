@@ -2,12 +2,10 @@
 # Client for AHCAL Reconstruction
 
 This package has been created by E.Brianne, DESY Hamburg.
-QtReco-Client includes a Qt interface that enables to grab histgrams/graphs from the tmp rootfile created during analysis with QtReco .
+QtReco-Client includes a Qt interface that enables to grab histograms/graphs from the temp rootfile created during analysis with QtReco.
 
 ## Requirements
 
-* Ilcsoft needs to be installed (Marlin, LCIO)
-* Calice framework with Marlin Processors
 * CMake 2.6 minimum
 * g++ 4.7 minimum
 * Qt version 4.7 or 5 
