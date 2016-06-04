@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include <TStyle.h>
 #include <TGaxis.h>
+#include <vector>
 
 QCanvasWidget::QCanvasWidget(QWidget *parent) :
     QWidget(parent)
@@ -70,7 +71,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH2 *h2D[list_size];
+        std::vector<TH2*> h2D(list_size);
 
         TIter next(m_list);
         TObject *obj;
@@ -94,7 +95,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH1 *h1D[list_size];
+        std::vector<TH1*> h1D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -117,7 +118,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH2 *h2D[list_size];
+        std::vector<TH2*> h2D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -172,7 +173,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH1 *hNhits[list_size];
+        std::vector<TH1*> hNhits(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -196,7 +197,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH1 *h1D[list_size];
+        std::vector<TH1*> h1D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -223,7 +224,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH1 *h1D[list_size];
+        std::vector<TH1*> h1D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -250,8 +251,8 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH1 *h1D[list_size];
-        TH2 *h2D[list_size];
+        std::vector<TH1*> h1D(list_size);
+        std::vector<TH2*> h2D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
@@ -287,7 +288,7 @@ void QCanvasWidget::Draw(TList *m_list)
     {
     	const int list_size = m_list->GetSize();
         TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TH2 *h2D[list_size];
+        std::vector<TH2*> h2D(list_size);
         TIter next(m_list);
         TObject *obj;
         int index = 0;
