@@ -20,11 +20,23 @@ git clone https://github.com/CALICETB/QtReco-Client.git
 
 Compile by doing (for Qt 5)
 <pre>
+export QTDIR=/path/to/qt5
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/path/to/install -DBUILD_DOCUMENTATION=ON -DUSE_GIT=ON -DWITH_QT5=ON ..
+cmake -DCMAKE_INSTALL_PREFIX=. -DBUILD_DOCUMENTATION=ON -DUSE_GIT=ON -DWITH_QT5=ON ..
 make
 make install
 </pre>
+
+For Qt4 :
+<pre>
+export QTDIR=/path/to/qt4
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=. -DBUILD_DOCUMENTATION=ON -DUSE_GIT=ON -DWITH_QT5=OFF ..
+make
+make install
+</pre>
+
 
 
