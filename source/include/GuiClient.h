@@ -56,7 +56,7 @@ signals:
     void log(QString type, QString message);
     void connected();
     void message(int type, QString runNumber);
-
+    
 private:
     //Class variables
     Ui::GUIClient *ui;

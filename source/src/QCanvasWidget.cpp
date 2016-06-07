@@ -23,7 +23,7 @@ QCanvasWidget::QCanvasWidget(QWidget *parent) :
 
 QCanvasWidget::~QCanvasWidget()
 {
-
+  delete TCanvas;
 }
 
 //-----------------------------------------------------------------------------------------------
