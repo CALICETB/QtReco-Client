@@ -1,0 +1,15 @@
+##############################################################################
+# this file is parsed when FIND_PACKAGE is called with version argument
+#
+# @author Jan Engels, Desy IT
+# Modified for QtReco-Client use by : R.Ete, IPNL
+##############################################################################
+
+
+SET( ${PACKAGE_FIND_NAME}_VERSION_MAJOR @QtReco-Client_VERSION_MAJOR@ )
+SET( ${PACKAGE_FIND_NAME}_VERSION_MINOR @QtReco-Client_VERSION_MINOR@ )
+SET( ${PACKAGE_FIND_NAME}_VERSION_PATCH @QtReco-Client_VERSION_PATCH@ )
+
+
+INCLUDE( "@QtReco-Client_DIR@/cmake/MacroCheckPackageVersion.cmake" )
+CHECK_PACKAGE_VERSION( ${PACKAGE_FIND_NAME} @QtReco-Client_VERSION@ )
