@@ -19,17 +19,21 @@ GUIClient::GUIClient(QWidget *parent) :
 
   ui->TabWidget->setEnabled(false);
 
-  connect(ui->GetT0_Correlation, SIGNAL(clicked()), this, SLOT(OnClick()));
-  connect(ui->GetT0s_Difference, SIGNAL(clicked()), this, SLOT(OnClick()));
-  connect(ui->GetT0s_Sum, SIGNAL(clicked()), this, SLOT(OnClick()));
+  // connect(ui->GetT0_Correlation, SIGNAL(clicked()), this, SLOT(OnClick()));
+  //connect(ui->GetT0s_Difference, SIGNAL(clicked()), this, SLOT(OnClick()));
+  // connect(ui->GetT0s_Sum, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHits, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHits_perLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetEnergySum, SIGNAL(clicked()), this, SLOT(OnClick()));
-  connect(ui->GetEnergyPerLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
+  //connect(ui->GetEnergyPerLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetEnergyPerChannel, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetRMSPerChannel, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower_others, SIGNAL(clicked()), this, SLOT(OnClick()));
-  connect(ui->GetHitMap, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetHitMap, SIGNAL(clicked()), this, SLOT(OnClick())); 
+  connect(ui->GetHitMap_Energy, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetTemp, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetHitTime, SIGNAL(clicked()), this, SLOT(OnClick()));
 
   connect(ui->Connect, SIGNAL(clicked()), this, SLOT(OnConnect()));
 
@@ -170,7 +174,7 @@ void GUIClient::OnClick()
     {
       QPushButton *button = qobject_cast<QPushButton*>(sender());
 
-      if(button == ui->GetT0_Correlation)
+      /*if(button == ui->GetT0_Correlation)
         {
 	  canvas->show();
 	  emit message(1, m_runNumber);
@@ -187,7 +191,7 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(3, m_runNumber);
 	  emit log("DEBUG", "Message Get T0_Sum send");
-        }
+	  }*/
       if(button == ui->GetHits)
         {
 	  canvas->show();
@@ -199,7 +203,7 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(5, m_runNumber);
 	  emit log("DEBUG", "Message GetHits per layer send");
-        }
+	  }
       if(button == ui->GetEnergySum)
         {
 	  canvas->show();
@@ -224,18 +228,42 @@ void GUIClient::OnClick()
 	  emit message(8, m_runNumber);
 	  emit log("DEBUG", "Message Get HitMap send");
         }
+      if(button == ui->GetHitMap_Energy)
+        {
+	  canvas->show();
+	  emit message(13, m_runNumber);
+	  emit log("DEBUG", "Message Get HitMapEnergy send");
+        }
       if(button == ui->GetTemp)
         {
 	  canvas->show();
 	  emit message(9, m_runNumber);
 	  emit log("DEBUG", "Message Get Temperature send");
         }
-      if(button == ui->GetEnergyPerLayer)
+      /*if(button == ui->GetEnergyPerLayer)
         {
 	  canvas->show();
 	  emit message(10, m_runNumber);
 	  emit log("DEBUG", "Message Get Energy Per Layer send");
+	  }*/
+      if(button == ui->GetHitTime)
+        {
+	  canvas->show();
+	  emit message(11, m_runNumber);
+	  emit log("DEBUG", "Message Get Hit Time send");
+	  }
+      if(button == ui->GetEnergyPerChannel)
+        {
+	  canvas->show();
+	  emit message(12, m_runNumber);
+	  emit log("DEBUG", "Message Get Energy Per Channel send");
         }
+      if(button == ui->GetRMSPerChannel)
+        {
+	  canvas->show();
+	  emit message(14, m_runNumber);
+	  emit log("DEBUG", "Message Get RMS Per Channel send");
+	}
 
       return;
     }

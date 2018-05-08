@@ -99,7 +99,7 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
 
   switch(type)
     {
-    case 1:
+      /*case 1:
       message.append("T0_Correlation");
       mess.WriteStdString(message);
       pClient->Send(mess);
@@ -113,7 +113,7 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       message.append("T0_Sum");
       mess.WriteStdString(message);
       pClient->Send(mess);
-      return;
+      return;*/
     case 4:
       message.append("NHits_Profile");
       mess.WriteStdString(message);
@@ -139,16 +139,37 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
+    case 13:
+      message.append("HitMap_Energy");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
     case 9:
       message.append("Temperature");
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
-    case 10:
+      /*case 10:
       message.append("EnergyPerLayer");
       mess.WriteStdString(message);
       pClient->Send(mess);
+      return;*/
+    case 11:
+      message.append("Hit_Time");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
       return;
+    case 12:
+      message.append("EnergyPerChannel");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
+    case 14:
+      message.append("RMSPerChannel");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
+
     }
 }
 
