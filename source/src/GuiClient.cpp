@@ -31,6 +31,7 @@ GUIClient::GUIClient(QWidget *parent) :
   connect(ui->GetShower, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower_others, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitMap, SIGNAL(clicked()), this, SLOT(OnClick())); 
+  connect(ui->GetHitMap_log, SIGNAL(clicked()), this, SLOT(OnClick())); 
   connect(ui->GetHitMap_Energy, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetTemp, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitTime, SIGNAL(clicked()), this, SLOT(OnClick()));
@@ -221,6 +222,12 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(7, m_runNumber);
 	  emit log("DEBUG", "Message Get Shower send");
+        }
+      if(button == ui->GetHitMap_log)
+        {
+	  canvas->show();
+	  emit message(8, m_runNumber);
+	  emit log("DEBUG", "Message Get HitMap log send");
         }
       if(button == ui->GetHitMap)
         {

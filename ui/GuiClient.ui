@@ -260,10 +260,26 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="GetHitMap_Energy">
+     <widget class="QPushButton" name="GetHitMap_log">
       <property name="geometry">
        <rect>
         <x>220</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Get HitMaps_log</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="GetHitMap_Energy">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
         <y>10</y>
         <width>161</width>
         <height>41</height>
