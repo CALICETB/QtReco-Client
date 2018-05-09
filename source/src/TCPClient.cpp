@@ -169,6 +169,11 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
+   case 15:
+      message.append("HitMap_Log");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
 
     }
 }

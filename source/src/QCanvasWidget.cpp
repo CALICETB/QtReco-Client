@@ -140,8 +140,8 @@ void QCanvasWidget::Draw(TList *m_list)
     if(strcmp(m_list->GetName(), "NHits_Profile") == 0)
     {
     	const int list_size = m_list->GetSize();
-    //    TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        TProfile *Prof025;
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        //TProfile *Prof025;
         TProfile *Prof050;
         TIter next(m_list);
         TObject *obj;
@@ -149,15 +149,15 @@ void QCanvasWidget::Draw(TList *m_list)
 
         while((obj = (TObject*)next()))
         {
-            if(strcmp(obj->GetName(), "NProf_0.25MIP") == 0)
+	  /*if(strcmp(obj->GetName(), "NProf_0.25MIP") == 0)
             {
-                // TCanvas->getCanvas()->cd(index+1);
-                // Prof025 = (TProfile*)obj;
-                //Prof025->Draw();
-                // TCanvas->getCanvas()->Update();
-                // TCanvas->getCanvas()->Modified();
+                TCanvas->getCanvas()->cd(index+1);
+                Prof025 = (TProfile*)obj;
+                Prof025->Draw();
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
                 index++;
-            }
+		}*/
             if(strcmp(obj->GetName(), "NProf_0.50MIP") == 0)
             {
                 TCanvas->getCanvas()->cd(index+1);
@@ -308,35 +308,6 @@ void QCanvasWidget::Draw(TList *m_list)
             }
         }
     }
-    if(strcmp(m_list->GetName(), "HitMap_Log") == 0)
-    {
-    	const int list_size = m_list->GetSize();
-        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
-        std::vector<TH2*> h2D(list_size);
-        TIter next(m_list);
-        TObject *obj;
-        int index = 0;
-
-        while((obj = (TObject*)next()))
-        {
-            if(obj->InheritsFrom(TH2::Class()))
-            {
-                TCanvas->getCanvas()->cd(index+1);
-                h2D[index] = (TH2*)obj;
-                if(h2D[index]->GetEntries() > 0)
-		  {
-		    gPad->SetLogz();
-                    h2D[index]->SetMinimum(1);
-                    h2D[index]->SetContour(99);
-                    h2D[index]->Draw("colz");
-		    this->ReverseXAxis(h2D[index]);
-		  }
-                TCanvas->getCanvas()->Update();
-                TCanvas->getCanvas()->Modified();
-            }
-            index++;
-        }
-    }
     if(strcmp(m_list->GetName(), "HitMap") == 0)
     {
     	const int list_size = m_list->GetSize();
@@ -354,7 +325,7 @@ void QCanvasWidget::Draw(TList *m_list)
                 h2D[index] = (TH2*)obj;
                 if(h2D[index]->GetEntries() > 0)
 		  {
-                    h2D[index]->SetContour(99);
+		    //gPad->SetLogz();
                     h2D[index]->Draw("colz");
 		    this->ReverseXAxis(h2D[index]);
 		  }
@@ -382,8 +353,33 @@ void QCanvasWidget::Draw(TList *m_list)
                 if(h2D[index]->GetEntries() > 0)
 		  {
 		    //gPad->SetLogz();
-                    h2D[index]->SetMinimum(1);
-                    h2D[index]->SetContour(99);
+                    h2D[index]->Draw("colz");
+		    this->ReverseXAxis(h2D[index]);
+		  }
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
+            }
+            index++;
+        }
+    }
+    if(strcmp(m_list->GetName(), "HitMap_Log") == 0)
+    {
+    	const int list_size = m_list->GetSize();
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        std::vector<TH2*> h2D(list_size);
+        TIter next(m_list);
+        TObject *obj;
+        int index = 0;
+
+        while((obj = (TObject*)next()))
+        {
+            if(obj->InheritsFrom(TH2::Class()))
+            {
+                TCanvas->getCanvas()->cd(index+1);
+                h2D[index] = (TH2*)obj;
+                if(h2D[index]->GetEntries() > 0)
+		  {
+		    gPad->SetLogz();	    
                     h2D[index]->Draw("colz");
 		    this->ReverseXAxis(h2D[index]);
 		  }
