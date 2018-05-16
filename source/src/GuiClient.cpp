@@ -35,6 +35,7 @@ GUIClient::GUIClient(QWidget *parent) :
   connect(ui->GetHitMap_Log, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetTemp, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitTime, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetnHitscogZ, SIGNAL(clicked()), this, SLOT(OnClick()));
 
   connect(ui->Connect, SIGNAL(clicked()), this, SLOT(OnConnect()));
 
@@ -270,6 +271,12 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(15, m_runNumber);
 	  emit log("DEBUG", "Message Get HitMapLog send");
+        }
+      if(button == ui->GetnHitscogZ)
+        {
+	  canvas->show();
+	  emit message(16, m_runNumber);
+	  emit log("DEBUG", "Message Get nHitscogZ send");
         }
 
       return;
