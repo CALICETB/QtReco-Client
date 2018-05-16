@@ -293,6 +293,24 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="nHitscogZ_Tab">
+     <attribute name="title">
+      <string>nHitscogZ</string>
+     </attribute>
+     <widget class="QPushButton" name="GetnHitscogZ">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>171</width>
+        <height>39</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Get nHits_vs_cogZ</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="TempTab">
      <attribute name="title">
       <string>Temperature</string>

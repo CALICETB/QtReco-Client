@@ -212,6 +212,7 @@ void QCanvasWidget::Draw(TList *m_list)
 		  {
 		    h1D[index]->SetFillColor(kBlue);
 		    h1D[index]->SetFillStyle(3002);
+		    //h1D[index]->Set
                     h1D[index]->Draw();
 		  }
                 TCanvas->getCanvas()->Update();
@@ -327,6 +328,7 @@ void QCanvasWidget::Draw(TList *m_list)
 		  {
 		    //gPad->SetLogz();
                     h2D[index]->Draw("colz");
+                    h2D[index]->SetContour(99);
 		    this->ReverseXAxis(h2D[index]);
 		  }
                 TCanvas->getCanvas()->Update();
@@ -354,6 +356,7 @@ void QCanvasWidget::Draw(TList *m_list)
 		  {
 		    //gPad->SetLogz();
                     h2D[index]->Draw("colz");
+                    h2D[index]->SetContour(99);
 		    this->ReverseXAxis(h2D[index]);
 		  }
                 TCanvas->getCanvas()->Update();
@@ -381,6 +384,8 @@ void QCanvasWidget::Draw(TList *m_list)
 		  {
 		    gPad->SetLogz();	    
                     h2D[index]->Draw("colz");
+                    h2D[index]->SetMinimum(1);
+                    h2D[index]->SetContour(99);
 		    this->ReverseXAxis(h2D[index]);
 		  }
                 TCanvas->getCanvas()->Update();
@@ -454,6 +459,32 @@ void QCanvasWidget::Draw(TList *m_list)
         TCanvas->getCanvas()->Update();
         TCanvas->getCanvas()->Modified();
 	}*/
+if(strcmp(m_list->GetName(), "nHitscogZ") == 0)
+    {
+    	const int list_size = m_list->GetSize();
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        std::vector<TH2*> h2D(list_size);
+        TIter next(m_list);
+        TObject *obj;
+        int index = 0;
+
+        while((obj = (TObject*)next()))
+        {
+            if(obj->InheritsFrom(TH2::Class()))
+            {
+                TCanvas->getCanvas()->cd(index+1);
+                h2D[index] = (TH2*)obj;
+                if(h2D[index]->GetEntries() > 0)
+		  {
+                    h2D[index]->Draw("COLZ");
+		    h2D[index]->SetContour(99);
+		  }
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
+            }
+            index++;
+        }
+    }
     if(strcmp(m_list->GetName(), "Hit_Time") == 0)
     {
     	const int list_size = m_list->GetSize();

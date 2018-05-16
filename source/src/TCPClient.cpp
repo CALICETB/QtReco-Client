@@ -174,6 +174,11 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
+   case 16:
+      message.append("nHitscogZ");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
 
     }
 }
