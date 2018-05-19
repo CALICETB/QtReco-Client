@@ -193,6 +193,30 @@ void QCanvasWidget::Draw(TList *m_list)
             }
         }
     }
+ if(strcmp(m_list->GetName(), "nHits_Per_Event") == 0)
+    {
+    	const int list_size = m_list->GetSize();
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        std::vector<TH1*> hNhits(list_size);
+        TIter next(m_list);
+        TObject *obj;
+        int index = 0;
+
+        while((obj = (TObject*)next()))
+        {
+            if(obj->InheritsFrom(TH1::Class()))
+            {
+                TCanvas->getCanvas()->cd(index+1);
+                gPad->SetLogy();
+                hNhits[index] = (TH1*)obj;
+                if(hNhits[index]->GetEntries() > 0)
+                    hNhits[index]->Draw();
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
+                index++;
+            }
+        }
+    }
     if(strcmp(m_list->GetName(), "Energy_Sum") == 0)
     {
     	const int list_size = m_list->GetSize();
@@ -279,6 +303,33 @@ void QCanvasWidget::Draw(TList *m_list)
                 h2D[index] = (TH2*)obj;
                 if(h2D[index]->GetEntries() > 0)
                     h2D[index]->Draw("COLZ");
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
+            }
+            index++;
+        }
+    }
+if(strcmp(m_list->GetName(), "EnergyLayer") == 0)
+    {
+    	const int list_size = m_list->GetSize();
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        std::vector<TH1*> h1D(list_size);
+        TIter next(m_list);
+        TObject *obj;
+        int index = 0;
+
+        while((obj = (TObject*)next()))
+        {
+            if(obj->InheritsFrom(TH1::Class()))
+            {
+                TCanvas->getCanvas()->cd(index+1);
+                h1D[index] = (TH1*)obj;
+                if(h1D[index]->GetEntries() > 0)
+		  {
+		    h1D[index]->SetFillColor(kBlue);
+		    h1D[index]->SetFillStyle(3002);
+                    h1D[index]->Draw();
+		  }
                 TCanvas->getCanvas()->Update();
                 TCanvas->getCanvas()->Modified();
             }

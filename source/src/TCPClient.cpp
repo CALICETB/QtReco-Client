@@ -179,6 +179,16 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
+   case 17:
+      message.append("EnergyLayer");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
+   case 18:
+      message.append("nHits_Per_Event");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
 
     }
 }

@@ -82,7 +82,7 @@
       </layout>
      </widget>
     </widget-->
-    <widget class="QWidget" name="Hist_Tab">
+    <widget class="QWidget" name="Hits_Tab">
      <attribute name="title">
       <string>Hits</string>
      </attribute>
@@ -110,6 +110,19 @@
       </property>
       <property name="text">
        <string>Get NHits per layer (0.5 MIP)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="GetnHits_Per_Event">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>10</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Get nHits Per Event</string>
       </property>
      </widget>
     </widget>
@@ -308,6 +321,24 @@
       </property>
       <property name="text">
        <string>Get nHits_vs_cogZ</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="EnergyLayer_Tab">
+     <attribute name="title">
+      <string>Energy Per Layer</string>
+     </attribute>
+     <widget class="QPushButton" name="GetEnergyLayer">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>171</width>
+        <height>39</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Get Energy Per Layer</string>
       </property>
      </widget>
     </widget>

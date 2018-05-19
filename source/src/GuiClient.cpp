@@ -24,12 +24,14 @@ GUIClient::GUIClient(QWidget *parent) :
   // connect(ui->GetT0s_Sum, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHits, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHits_perLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetnHits_Per_Event, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetEnergySum, SIGNAL(clicked()), this, SLOT(OnClick()));
   //connect(ui->GetEnergyPerLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetEnergyPerChannel, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetRMSPerChannel, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower_others, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetEnergyLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitMap, SIGNAL(clicked()), this, SLOT(OnClick())); 
   connect(ui->GetHitMap_Energy, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitMap_Log, SIGNAL(clicked()), this, SLOT(OnClick()));
@@ -277,6 +279,18 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(16, m_runNumber);
 	  emit log("DEBUG", "Message Get nHitscogZ send");
+        }
+      if(button == ui->GetEnergyLayer)
+        {
+	  canvas->show();
+	  emit message(17, m_runNumber);
+	  emit log("DEBUG", "Message Get EnergyLayer send");
+        }
+      if(button == ui->GetnHits_Per_Event)
+        {
+	  canvas->show();
+	  emit message(18, m_runNumber);
+	  emit log("DEBUG", "Message Get EnergyLayer send");
         }
 
       return;
