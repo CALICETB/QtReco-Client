@@ -189,6 +189,11 @@ void TCPClient::SendMessage(int type, QString m_runNumber)
       mess.WriteStdString(message);
       pClient->Send(mess);
       return;
+   case 19:
+      message.append("MemoryCells");
+      mess.WriteStdString(message);
+      pClient->Send(mess);
+      return;
 
     }
 }

@@ -217,6 +217,30 @@ void QCanvasWidget::Draw(TList *m_list)
             }
         }
     }
+ if(strcmp(m_list->GetName(), "MemoryCells") == 0)
+    {
+    	const int list_size = m_list->GetSize();
+        TCanvas->getCanvas()->DivideSquare(list_size, 0.01, 0.01);
+        std::vector<TH1*> hNhits(list_size);
+        TIter next(m_list);
+        TObject *obj;
+        int index = 0;
+
+        while((obj = (TObject*)next()))
+        {
+            if(obj->InheritsFrom(TH1::Class()))
+            {
+                TCanvas->getCanvas()->cd(index+1);
+                gPad->SetLogy();
+                hNhits[index] = (TH1*)obj;
+                if(hNhits[index]->GetEntries() > 0)
+                    hNhits[index]->Draw();
+                TCanvas->getCanvas()->Update();
+                TCanvas->getCanvas()->Modified();
+                index++;
+            }
+        }
+    }
     if(strcmp(m_list->GetName(), "Energy_Sum") == 0)
     {
     	const int list_size = m_list->GetSize();

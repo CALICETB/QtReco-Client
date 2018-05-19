@@ -32,6 +32,7 @@ GUIClient::GUIClient(QWidget *parent) :
   connect(ui->GetShower, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetShower_others, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetEnergyLayer, SIGNAL(clicked()), this, SLOT(OnClick()));
+  connect(ui->GetMemoryCells, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitMap, SIGNAL(clicked()), this, SLOT(OnClick())); 
   connect(ui->GetHitMap_Energy, SIGNAL(clicked()), this, SLOT(OnClick()));
   connect(ui->GetHitMap_Log, SIGNAL(clicked()), this, SLOT(OnClick()));
@@ -291,6 +292,12 @@ void GUIClient::OnClick()
 	  canvas->show();
 	  emit message(18, m_runNumber);
 	  emit log("DEBUG", "Message Get EnergyLayer send");
+        }
+      if(button == ui->GetMemoryCells)
+        {
+	  canvas->show();
+	  emit message(19, m_runNumber);
+	  emit log("DEBUG", "Message Get MemoryCells send");
         }
 
       return;
